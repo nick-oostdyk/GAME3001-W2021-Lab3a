@@ -27,7 +27,6 @@ void PlayScene::draw() {
 void PlayScene::update() {
 	updateDisplayList();
 
-	//CollisionManager::AABBCheck(m_pSpaceShip, m_pObstacle);
 }
 
 void PlayScene::clean() {
@@ -77,12 +76,6 @@ void PlayScene::GUI_Function() const {
 	}
 
 	ImGui::Separator();
-
-	static float targetPosition[2] = { m_pTarget->getTransform()->position.x, m_pTarget->getTransform()->position.y };
-	if (ImGui::SliderFloat2("Target", targetPosition, 0.0f, 800.0f)) {
-		m_pTarget->getTransform()->position = glm::vec2(targetPosition[0], targetPosition[1]);
-		m_pSpaceShip->setDestination(m_pTarget->getTransform()->position);
-	}
 
 	ImGui::End();
 
